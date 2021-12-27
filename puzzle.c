@@ -83,7 +83,12 @@ bool move(puzzleGame* game, char key) {
     if ((targetRow >= 0 && targetRow < size) && (targetCol >= 0 && targetCol < size)) {
         board[spacedRow][spacedCol] = board[targetRow][targetCol];
         board[targetRow][targetCol] = 0;
-        game->moves[game->moves_index++] = key;
+        if (game->moves_index == 0 || key != getOppositeKey(game->moves[game->moves_index - 1])) {
+            game->moves[game->moves_index++] = key;
+        }
+        else {
+            game->moves_index--;
+        }
         if (goalAchieved(board, size)) {
             return true;
         }

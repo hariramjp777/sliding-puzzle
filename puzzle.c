@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include <unistd.h>
+#include "colors.h"
 #define MAX_MOVES 100
-#define RESET    "\033[0m"
-#define F_YELLOW "\033[0;33m"
 
 typedef struct {
     int size;
@@ -16,6 +16,7 @@ typedef struct {
 puzzleGame* constructPuzzleGame(int size);
 bool move(puzzleGame* game, char key);
 void printBoard(puzzleGame* game);
+void autoSolve(puzzleGame* game);
 char getOppositeKey(char key);
 void randomize(puzzleGame* game, int randomCount);
 bool goalAchieved(int** board, int size);
@@ -135,6 +136,18 @@ char getOppositeKey(char key) {
         break;
     }
     return opp_key;
+}
+
+void autoSolve(puzzleGame* game) {
+    int size = game->size;
+    for (int i = game->moves_index - 1; i >= 0; i--) {
+        system("cls");
+        printBoard(game);
+        sleep(1.7);
+        if (move(game, getOppositeKey(game->moves[i]))) {
+            return;
+        }
+    }
 }
 
 void printBoard(puzzleGame* game) {

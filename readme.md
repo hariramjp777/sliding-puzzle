@@ -1,5 +1,7 @@
 ## Puzzle Game
 
+![game][https://user-images.githubusercontent.com/58631762/147495971-ce713185-55eb-4c52-a6cb-c8ba64b7277f.gif]
+
 * Fork the repository
 
 * Clone the repository

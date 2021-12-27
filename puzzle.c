@@ -147,6 +147,7 @@ void autoSolve(puzzleGame* game) {
     int size = game->size;
     for (int i = game->moves_index - 1; i >= 0; i--) {
         system("cls");
+        printf("\n");
         printBoard(game);
         sleep(1.7);
         if (move(game, getOppositeKey(game->moves[i]))) {

@@ -5,13 +5,13 @@
 * Clone the repository
 
 ```bash
-git clone https://github.com/<username>/puzzle-game.git
+git clone https://github.com/<username>/sliding-puzzle.git
 ```
 
-* Go to the directory `puzzle-game`
+* Go to the directory `sliding-puzzle`
 
 ```bash
-cd puzzle-game/
+cd sliding-puzzle/
 ```
 
 * Compile the file `main.c` and create the executable `main`
